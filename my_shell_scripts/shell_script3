@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ -e $1  ]
+then
+	if [ -d $1 ]
+	then
+		echo "É um diretorio"
+	elif [ -f $1  ]
+	then
+		echo "É um arquivo"
+	else
+		echo "É outro tipo de arquivo"
+	fi
+echo "`ls -la $1`"
+else
+echo "esse arquivo/diretorio não existe"
+fi
+
+
