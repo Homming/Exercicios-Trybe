@@ -1,4 +1,5 @@
 #!/bin/bash
+"vou ter muito sucesso na programação!"
 read VARIAVEL
 if [ $VARIAVEL ]
 then
