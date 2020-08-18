@@ -1,4 +1,5 @@
 #!/bin/bash
+Eu sou Tryber e gosto de ganhar dinheiro
 read VARIAVEL
 if [ $VARIAVEL ]
 then
