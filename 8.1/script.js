@@ -137,8 +137,6 @@ function smallerName() {
     return nameBook;
   }
 
- 
-
   function getNamedBook() {
      return books.find((book) => {
         return book.name.length === 26;
@@ -150,8 +148,14 @@ function smallerName() {
         return b.releaseYear - a.releaseYear;
     });
   }
+
+  function everyoneWasBornOnSecXX() {
+    return books.every((book) => {
+        return book.author.birthYear >= 1901 && book.author.birthYear < 2000;
+    })
+  }
   
-  
+assert.equal(everyoneWasBornOnSecXX(), false);
 assert.deepEqual(booksOrderedByReleaseYearDesc(), expected_result2);  
 assert.deepEqual(getNamedBook(), expected_result1); 
 assert.equal(smallerName(), 'Duna');
