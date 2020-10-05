@@ -154,7 +154,14 @@ function smallerName() {
         return book.author.birthYear >= 1901 && book.author.birthYear < 2000;
     })
   }
+
+  function someBookWasReleaseOnThe80s() {
+    return books.some((book) => {
+        return book.releaseYear < 1990 && book.releaseYear > 1979;
+    })
+  }
   
+assert.equal(someBookWasReleaseOnThe80s(), true); 
 assert.equal(everyoneWasBornOnSecXX(), false);
 assert.deepEqual(booksOrderedByReleaseYearDesc(), expected_result2);  
 assert.deepEqual(getNamedBook(), expected_result1); 
