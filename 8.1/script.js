@@ -160,7 +160,20 @@ function smallerName() {
         return book.releaseYear < 1990 && book.releaseYear > 1979;
     })
   }
+
+  function authorUnique() {
+    let unico = true;
+    books.some((book) => {
+        books.some((otherBook) => {
+            if(book.author.birthYear === otherBook.author.birthYear && book.id !== otherBook.id) {
+                unico = false;
+            }
+        })
+    })
+    return unico;
+  }
   
+assert.equal(authorUnique(), false);
 assert.equal(someBookWasReleaseOnThe80s(), true); 
 assert.equal(everyoneWasBornOnSecXX(), false);
 assert.deepEqual(booksOrderedByReleaseYearDesc(), expected_result2);  
