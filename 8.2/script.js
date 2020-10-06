@@ -72,8 +72,50 @@ const expected_result1 = [
   'O Chamado de Cthulhu - Terror - H. P. Lovecraft'
 ];
 
+const expected_result2 = [
+    {
+      age: 31,
+      author: 'Isaac Asimov'
+    },
+    {
+      age: 38,
+      author: 'H. P. Lovecraft'
+    },
+    {
+      age: 39,
+      author: 'Stephen King'
+    },
+    {
+      age: 43,
+      author: 'George R. R. Martin'
+    },
+    {
+      age: 45,
+      author: 'Frank Herbert'
+    },
+    {
+      age: 62,
+      author: 'J. R. R. Tolkien'
+    }
+  ];
+
 function formatedBookNames() {
   return books.map((book) => `${book.name} - ${book.genre} - ${book.author.name}`);
 }
 
+function nameAndAge() {
+    const authorAgeRelease = books.map((book) => {
+        return {
+            "age": book.releaseYear - book.author.birthYear,
+            "author": book.author.name
+        }
+        
+    });
+    return authorAgeRelease.sort((a, b) => {
+        return a.age - b.age;
+    });
+  }
+  
+
+assert.deepEqual(nameAndAge(), expected_result2);
 assert.deepEqual(formatedBookNames(), expected_result1);
