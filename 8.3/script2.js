@@ -63,6 +63,18 @@ const books = [
   },
 ];
 
+const expected_result1 = 43;
+const expected_result2 = {
+    author: {
+      birthYear: 1948,
+      name: 'George R. R. Martin'
+    },
+    genre: 'Fantasia',
+    id: 1,
+    name: 'As Crônicas de Gelo e Fogo',
+    releaseYear: 1991
+};
+
 
 function allNames() {
     let authorsName = books.reduce((previousValue, currentValue) =>{
@@ -72,4 +84,19 @@ function allNames() {
     return `Nomes: ${authorsName}.`;
 }
 
+function averageAge() {
+   return books.reduce((previousValue, currentValue) => {
+        return previousValue + (currentValue.releaseYear - currentValue.author.birthYear);
+    }, 0) / books.length;
+}
+  
+function longestNamedBook() {
+    return books.reduce((previousValue, currentValue) => {
+        if(previousValue.name.length < currentValue.name.length) return currentValue;
+        else return previousValue;
+    });
+}
+
+assert.deepEqual(longestNamedBook(), expected_result2);
+assert.equal(averageAge(), expected_result1);
 assert.deepEqual(allNames(), "Nomes: George R. R. Martin, J. R. R. Tolkien, Isaac Asimov, Frank Herbert, Stephen King, H. P. Lovecraft.");
